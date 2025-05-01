@@ -1,0 +1,78 @@
+creating a bucket :aws s3 mb s3://altair-bucket-dheeraj
+
+
+mkdir altair\atlanta\alpharetta\
+echo This is my sample file in alpharetta> altair\atlanta\alpharetta\sample.txt
+type altair\atlanta\alpharetta\sample.txt
+
+if in powershell "This is my sample file in alpharetta\name" | Out-File -FilePath "altair\atlanta\alpharetta\sample.txt"
+upload to the aws s3 :
+aws s3 cp altair/ s3://altair-bucket-dheeraj/altair/ --recursive
+to show what is in the aws s3:
+aws s3 ls s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/
+
+In local updating the file with my name :
+ "This is Dheeraj Pavan Adapa" | Out-File -FilePath "altair\atlanta\alpharetta\sample.txt"
+reading the file locally :type altair\atlanta\alpharetta\sample.txt
+This is Dheeraj Pavan Adapa
+
+update it into the s3 
+>aws s3 cp altair\atlanta\alpharetta\sample.txt s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+
+upload: altair\atlanta\alpharetta\sample.txt to s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+reading the file from s3 
+aws s3 cp s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt -
+This is Dheeraj Pavan Adapa
+
+deleting the file from s3 
+s3 rm s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+delete: s3://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+
+
+--------------------------------------------------------------
+aws s3 rm	Remove a file (object)
+aws s3 rm --recursive	Remove entire folder contents
+aws s3 rb	Remove entire bucket (careful!)
+
+
+creating a bucket in gcp
+ gsutil mb gs://altair-bucket-dheeraj/
+
+creating in local
+mkdir altair\atlanta\alpharetta\
+echo This is my sample file in alpharetta> altair\atlanta\alpharetta\sample.txt
+type altair\atlanta\alpharetta\sample.txt
+
+if in powershell "This is my sample file in alpharetta\name" | Out-File -FilePath "altair\atlanta\alpharetta\sample.txt"
+
+upload the file to cloud storage object 
+gsutil cp -r altair/ gs://altair-bucket-dheeraj/altair/
+
+to see the cloud storage files in object :
+gsutil ls gs://altair-bucket-dheeraj/altair/atlanta/alpharetta/
+
+update the file locally 
+"This is Dheeraj Pavan Adapa" | Out-File -FilePath "altair\atlanta\alpharetta\sample.txt" -Encoding utf8
+type altair\atlanta\alpharetta\sample.txt
+This is Dheeraj Pavan Adapa
+
+upload file to gcp
+ gsutil cp altair\atlanta\alpharetta\sample.txt gs://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+
+reading the file for gcp
+gsutil cat gs://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+
+This is Dheeraj Pavan Adapa
+
+deleting the file :
+gsutil rm gs://altair-bucket-dheeraj/altair/atlanta/alpharetta/sample.txt
+
+deleting entire file :
+gsutil rm -r gs://altair-bucket-dheeraj/altair/atlanta/alpharetta/
+
+removing buvket 
+gsutil rb gs://altair-bucket-dheeraj/
+
+
+
+
